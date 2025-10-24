@@ -1,0 +1,467 @@
+openapi: 3.0.3
+info:
+  title: TaskSphere - Smart Team Productivity Manager API
+  description: >
+    Microservices-based productivity manager with AI task prioritization and user management.
+  version: 2.0.0
+  contact:
+    name: TaskSphere Dev Team
+    email: api-support@tasksphere.io
+
+servers:
+  - url: http://localhost:8080
+    description: API Gateway Entry Point
+  - url: http://localhost:8081
+    description: User Service
+  - url: http://localhost:8082
+    description: Task Service
+
+tags:
+  - name: User Service
+    description: Authentication, Password Management, and Team Operations
+  - name: Task Service
+    description: Task CRUD, Prioritization, Analytics, and Notifications
+
+paths:
+  #######################
+  # USER SERVICE
+  #######################
+  /api/users/register:
+    post:
+      tags: [User Service]
+      summary: Register a new user account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegisterRequest'
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Invalid user data
+
+  /api/users/login:
+    post:
+      tags: [User Service]
+      summary: Authenticate user and return JWT token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Invalid credentials
+
+  /api/users/forgot-password:
+    post:
+      tags: [User Service]
+      summary: Send password reset OTP to registered email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+      responses:
+        '200':
+          description: OTP sent successfully
+        '404':
+          description: Email not found
+
+  /api/users/verify-otp:
+    post:
+      tags: [User Service]
+      summary: Verify OTP before resetting password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyOTPRequest'
+      responses:
+        '200':
+          description: OTP verified successfully
+        '400':
+          description: Invalid or expired OTP
+
+  /api/users/reset-password:
+    post:
+      tags: [User Service]
+      summary: Reset user password after OTP verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+      responses:
+        '200':
+          description: Password reset successful
+        '400':
+          description: Invalid reset attempt
+
+  /api/users/profile/{id}:
+    get:
+      tags: [User Service]
+      summary: Get user profile by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: User profile retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '404':
+          description: User not found
+
+  /api/teams:
+    post:
+      tags: [User Service]
+      summary: Create a new team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+      responses:
+        '201':
+          description: Team created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamResponse'
+
+    get:
+      tags: [User Service]
+      summary: Get all teams for the logged-in user
+      responses:
+        '200':
+          description: List of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamResponse'
+
+  #######################
+  # TASK SERVICE
+  #######################
+  /api/tasks:
+    post:
+      tags: [Task Service]
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskRequest'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+
+    get:
+      tags: [Task Service]
+      summary: Get all tasks (with optional filters)
+      parameters:
+        - name: assignedTo
+          in: query
+          schema: { type: integer }
+          description: Filter by assigned user
+        - name: status
+          in: query
+          schema: { type: string, enum: [PENDING, IN_PROGRESS, COMPLETED] }
+        - name: priority
+          in: query
+          schema: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+      responses:
+        '200':
+          description: List of filtered tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResponse'
+
+  /api/tasks/{id}:
+    get:
+      tags: [Task Service]
+      summary: Get task details by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Task retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+        '404':
+          description: Task not found
+
+    put:
+      tags: [Task Service]
+      summary: Update task details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdateRequest'
+      responses:
+        '200':
+          description: Task updated successfully
+
+    delete:
+      tags: [Task Service]
+      summary: Delete a task by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Task deleted successfully
+
+  /api/tasks/{id}/reassign:
+    put:
+      tags: [Task Service]
+      summary: Reassign task to another user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReassignTaskRequest'
+      responses:
+        '200':
+          description: Task reassigned successfully
+
+  /api/tasks/{id}/comment:
+    post:
+      tags: [Task Service]
+      summary: Add comment to a task
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentRequest'
+      responses:
+        '201':
+          description: Comment added successfully
+
+  /api/tasks/analytics:
+    get:
+      tags: [Task Service]
+      summary: Get AI-driven productivity analytics
+      responses:
+        '200':
+          description: Productivity metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsResponse'
+
+  /api/tasks/reminders:
+    get:
+      tags: [Task Service]
+      summary: Fetch upcoming task reminders
+      responses:
+        '200':
+          description: List of tasks due soon
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResponse'
+
+components:
+  schemas:
+    ##################
+    # USER SCHEMAS
+    ##################
+    UserRegisterRequest:
+      type: object
+      required: [name, email, password]
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        password: { type: string, format: password }
+        role:
+          type: string
+          enum: [ADMIN, MANAGER, MEMBER]
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string }
+
+    ForgotPasswordRequest:
+      type: object
+      properties:
+        email: { type: string, format: email }
+      required: [email]
+
+    VerifyOTPRequest:
+      type: object
+      properties:
+        email: { type: string, format: email }
+        otp: { type: string }
+      required: [email, otp]
+
+    ResetPasswordRequest:
+      type: object
+      properties:
+        email: { type: string }
+        newPassword: { type: string, format: password }
+      required: [email, newPassword]
+
+    AuthResponse:
+      type: object
+      properties:
+        token: { type: string }
+        expiresIn: { type: integer }
+        userId: { type: integer }
+
+    UserResponse:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        email: { type: string }
+        role: { type: string }
+
+    TeamRequest:
+      type: object
+      properties:
+        name: { type: string }
+        createdBy: { type: integer }
+
+    TeamResponse:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        createdBy: { type: integer }
+
+    ##################
+    # TASK SCHEMAS
+    ##################
+    TaskRequest:
+      type: object
+      required: [title, assignedTo, deadline]
+      properties:
+        title: { type: string }
+        description: { type: string }
+        assignedTo: { type: integer }
+        deadline: { type: string, format: date-time }
+        priority:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+
+    TaskUpdateRequest:
+      type: object
+      properties:
+        title: { type: string }
+        description: { type: string }
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, COMPLETED, CANCELLED]
+        priority:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        progress: { type: number, minimum: 0, maximum: 100 }
+
+    ReassignTaskRequest:
+      type: object
+      properties:
+        newAssigneeId: { type: integer }
+
+    CommentRequest:
+      type: object
+      required: [commentedBy, text]
+      properties:
+        commentedBy: { type: integer }
+        text: { type: string }
+
+    TaskResponse:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        description: { type: string }
+        assignedTo: { type: integer }
+        deadline: { type: string, format: date-time }
+        status: { type: string }
+        priority: { type: string }
+        progress: { type: number }
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentResponse'
+
+    CommentResponse:
+      type: object
+      properties:
+        id: { type: integer }
+        text: { type: string }
+        commentedBy: { type: integer }
+        createdAt: { type: string, format: date-time }
+
+    AnalyticsResponse:
+      type: object
+      properties:
+        totalTasks: { type: integer }
+        completedTasks: { type: integer }
+        overdueTasks: { type: integer }
+        avgCompletionTime: { type: number, format: float }
+        productivityScore: { type: number, format: float }

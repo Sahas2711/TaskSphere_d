@@ -1,0 +1,126 @@
+2025-10-14T19:41:48.444+05:30  INFO 3152 --- [UserService] [restartedMain] c.m.t.T.TaskServiceApplication           : Starting TaskServiceApplication using Java 22 with PID 3152 (E:\Projects\TaskSphere\Backend\TaskService\TaskService\target\classes started by hp in E:\Projects\TaskSphere\Backend\TaskService\TaskService)
+2025-10-14T19:41:48.448+05:30  INFO 3152 --- [UserService] [restartedMain] c.m.t.T.TaskServiceApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-10-14T19:41:48.583+05:30  INFO 3152 --- [UserService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-14T19:41:48.584+05:30  INFO 3152 --- [UserService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-14T19:41:49.948+05:30  INFO 3152 --- [UserService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-14T19:41:50.181+05:30  INFO 3152 --- [UserService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 208 ms. Found 1 JPA repository interface.
+2025-10-14T19:41:50.605+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7d6b393f-dfe9-3a9c-909c-1a968dc07db8
+2025-10-14T19:41:51.360+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8087 (http)
+2025-10-14T19:41:51.396+05:30  INFO 3152 --- [UserService] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-14T19:41:51.397+05:30  INFO 3152 --- [UserService] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-14T19:41:51.485+05:30  INFO 3152 --- [UserService] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-14T19:41:51.486+05:30  INFO 3152 --- [UserService] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2899 ms
+2025-10-14T19:41:51.830+05:30  INFO 3152 --- [UserService] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-14T19:41:51.953+05:30  INFO 3152 --- [UserService] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-14T19:41:52.009+05:30  INFO 3152 --- [UserService] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-14T19:41:52.440+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-14T19:41:52.480+05:30  INFO 3152 --- [UserService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-14T19:41:53.044+05:30  INFO 3152 --- [UserService] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e0ebd6e
+2025-10-14T19:41:53.057+05:30  INFO 3152 --- [UserService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-14T19:41:53.153+05:30  WARN 3152 --- [UserService] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-14T19:41:53.154+05:30  WARN 3152 --- [UserService] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-14T19:41:53.194+05:30  INFO 3152 --- [UserService] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-14T19:41:54.277+05:30  INFO 3152 --- [UserService] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-14T19:41:54.479+05:30  INFO 3152 --- [UserService] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-14T19:41:55.022+05:30  WARN 3152 --- [UserService] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-14T19:41:55.872+05:30  INFO 3152 --- [UserService] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-14T19:41:56.081+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-14T19:41:56.168+05:30  INFO 3152 --- [UserService] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-10-14T19:41:56.218+05:30  WARN 3152 --- [UserService] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-14T19:41:56.251+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-10-14T19:41:56.282+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-10-14T19:41:56.286+05:30  INFO 3152 --- [UserService] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-14T19:41:56.297+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-14T19:41:56.297+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-14T19:41:56.297+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-14T19:41:56.297+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-14T19:41:56.297+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-14T19:41:56.298+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-10-14T19:41:56.298+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-14T19:41:56.815+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-10-14T19:41:56.817+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-10-14T19:41:56.820+05:30  INFO 3152 --- [UserService] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-10-14T19:41:56.824+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1760451116823 with initial instances count: 1
+2025-10-14T19:41:56.830+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USERSERVICE with eureka with status UP
+2025-10-14T19:41:56.832+05:30  INFO 3152 --- [UserService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1760451116832, current=UP, previous=STARTING]
+2025-10-14T19:41:56.835+05:30  INFO 3152 --- [UserService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERSERVICE/192.168.1.42:UserService:8087: registering service...
+2025-10-14T19:41:56.859+05:30  INFO 3152 --- [UserService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8087 (http) with context path '/'
+2025-10-14T19:41:56.861+05:30  INFO 3152 --- [UserService] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8087
+2025-10-14T19:41:56.894+05:30  INFO 3152 --- [UserService] [restartedMain] c.m.t.T.TaskServiceApplication           : Started TaskServiceApplication in 9.667 seconds (process running for 10.793)
+2025-10-14T19:41:56.972+05:30  INFO 3152 --- [UserService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERSERVICE/192.168.1.42:UserService:8087 - registration status: 204
+2025-10-14T19:43:09.754+05:30  INFO 3152 --- [UserService] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-14T19:43:09.757+05:30  INFO 3152 --- [UserService] [Thread-6] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USERSERVICE with eureka with status DOWN
+2025-10-14T19:43:09.758+05:30  INFO 3152 --- [UserService] [Thread-6] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1760451189758, current=DOWN, previous=UP]
+2025-10-14T19:43:09.758+05:30  INFO 3152 --- [UserService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERSERVICE/192.168.1.42:UserService:8087: registering service...
+2025-10-14T19:43:09.759+05:30  INFO 3152 --- [UserService] [Thread-6] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-14T19:43:09.774+05:30  INFO 3152 --- [UserService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERSERVICE/192.168.1.42:UserService:8087 - registration status: 204
+2025-10-14T19:43:09.784+05:30  INFO 3152 --- [UserService] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-14T19:43:09.795+05:30  INFO 3152 --- [UserService] [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-14T19:43:09.805+05:30  INFO 3152 --- [UserService] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-14T19:43:09.823+05:30  INFO 3152 --- [UserService] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-14T19:43:09.824+05:30  INFO 3152 --- [UserService] [Thread-6] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-10-14T19:43:12.834+05:30  INFO 3152 --- [UserService] [Thread-6] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-10-14T19:43:12.860+05:30  INFO 3152 --- [UserService] [Thread-6] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERSERVICE/192.168.1.42:UserService:8087 - deregister  status: 200
+2025-10-14T19:43:12.861+05:30  INFO 3152 --- [UserService] [Thread-6] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-10-14T19:43:13.035+05:30  INFO 3152 --- [TaskService] [restartedMain] c.m.t.T.TaskServiceApplication           : Starting TaskServiceApplication using Java 22 with PID 3152 (E:\Projects\TaskSphere\Backend\TaskService\TaskService\target\classes started by hp in E:\Projects\TaskSphere\Backend\TaskService\TaskService)
+2025-10-14T19:43:13.036+05:30  INFO 3152 --- [TaskService] [restartedMain] c.m.t.T.TaskServiceApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-10-14T19:43:13.629+05:30  INFO 3152 --- [TaskService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-14T19:43:13.666+05:30  INFO 3152 --- [TaskService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 1 JPA repository interface.
+2025-10-14T19:43:13.891+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7d6b393f-dfe9-3a9c-909c-1a968dc07db8
+2025-10-14T19:43:14.064+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8087 (http)
+2025-10-14T19:43:14.068+05:30  INFO 3152 --- [TaskService] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-14T19:43:14.070+05:30  INFO 3152 --- [TaskService] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-14T19:43:14.216+05:30  INFO 3152 --- [TaskService] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-14T19:43:14.217+05:30  INFO 3152 --- [TaskService] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1178 ms
+2025-10-14T19:43:14.296+05:30  INFO 3152 --- [TaskService] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-14T19:43:14.300+05:30  INFO 3152 --- [TaskService] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-14T19:43:14.325+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-14T19:43:14.329+05:30  INFO 3152 --- [TaskService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-10-14T19:43:14.372+05:30  INFO 3152 --- [TaskService] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@151f4dd3
+2025-10-14T19:43:14.374+05:30  INFO 3152 --- [TaskService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-10-14T19:43:14.376+05:30  WARN 3152 --- [TaskService] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-14T19:43:14.376+05:30  WARN 3152 --- [TaskService] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-14T19:43:14.378+05:30  INFO 3152 --- [TaskService] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-14T19:43:14.511+05:30  INFO 3152 --- [TaskService] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-14T19:43:14.549+05:30  INFO 3152 --- [TaskService] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-14T19:43:14.725+05:30  WARN 3152 --- [TaskService] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-14T19:43:15.083+05:30  INFO 3152 --- [TaskService] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-14T19:43:15.162+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-14T19:43:15.275+05:30  INFO 3152 --- [TaskService] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-10-14T19:43:15.313+05:30  WARN 3152 --- [TaskService] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-14T19:43:15.333+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-10-14T19:43:15.341+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-10-14T19:43:15.342+05:30  INFO 3152 --- [TaskService] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-14T19:43:15.345+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-14T19:43:15.345+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-14T19:43:15.346+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-14T19:43:15.346+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-14T19:43:15.346+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-14T19:43:15.346+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-10-14T19:43:15.347+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-14T19:43:15.457+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-10-14T19:43:15.459+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-10-14T19:43:15.461+05:30  INFO 3152 --- [TaskService] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-10-14T19:43:15.462+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1760451195462 with initial instances count: 3
+2025-10-14T19:43:15.465+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application TASKSERVICE with eureka with status UP
+2025-10-14T19:43:15.465+05:30  INFO 3152 --- [TaskService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1760451195465, current=UP, previous=STARTING]
+2025-10-14T19:43:15.466+05:30  INFO 3152 --- [TaskService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TASKSERVICE/192.168.1.42:TaskService:8087: registering service...
+2025-10-14T19:43:15.478+05:30  INFO 3152 --- [TaskService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8087 (http) with context path '/'
+2025-10-14T19:43:15.480+05:30  INFO 3152 --- [TaskService] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8087
+2025-10-14T19:43:15.504+05:30  INFO 3152 --- [TaskService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TASKSERVICE/192.168.1.42:TaskService:8087 - registration status: 204
+2025-10-14T19:43:15.506+05:30  INFO 3152 --- [TaskService] [restartedMain] c.m.t.T.TaskServiceApplication           : Started TaskServiceApplication in 2.557 seconds (process running for 89.404)
+2025-10-14T19:48:15.358+05:30  INFO 3152 --- [TaskService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
