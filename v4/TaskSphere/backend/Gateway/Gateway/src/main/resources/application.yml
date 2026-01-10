@@ -1,0 +1,60 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "http://localhost:8081"
+            allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+            allowed-headers: "*"
+            allow-credentials: false
+            max-age: 3600
+      routes:
+        - id: user-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/users/**
+          # DISABLED: Reactive Gateway incompatible with servlet-style JWT filter
+          # filters:
+          #   - name: JwtAuthenticationFilter
+        - id: user-auth-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/auth/**
+          # ADDED: Route for auth endpoints like /auth/logout
+        - id: task-service
+          uri: http://localhost:8087
+          predicates:
+            - Path=/api/tasks/**
+          # DISABLED: Let downstream services handle JWT validation
+          # filters:
+          #   - name: JwtAuthenticationFilter
+
+jwt:
+  secret: mysecretkeymysecretkeymysecretkey1234mysecretkeymysecretkeymysecretkey1234
+  issuer: tasksphere-api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    com.mit.tasksphere: DEBUG
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      defaultCircuitBreaker:
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
