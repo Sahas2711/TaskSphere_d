@@ -1,8 +1,10 @@
 {
+  "buildCommand": "cd v4/TaskSphere/frontend && npm run build",
+  "outputDirectory": "v4/TaskSphere/frontend/dist",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/v4/TaskSphere/frontend/dist/index.html"
     }
   ]
 }
