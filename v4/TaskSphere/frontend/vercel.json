@@ -1,10 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "v4/TaskSphere/frontend/client/dist",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/v4/TaskSphere/frontend/client/dist/index.html"
+      "destination": "/index.html"
     }
   ]
 }
