@@ -25,7 +25,7 @@ export default defineConfig(() => ({
     },
   },
   build: {
-    outDir: "../dist/spa",
+    outDir: "dist", // CHANGED: Output to dist for Vercel deployment
   },
   plugins: [react(), expressPlugin()],
   resolve: {
