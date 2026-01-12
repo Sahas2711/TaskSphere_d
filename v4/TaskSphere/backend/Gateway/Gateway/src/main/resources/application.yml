@@ -4,40 +4,37 @@ server:
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowed-origins: "http://localhost:8081"
-            allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+            allowed-origins: ${ALLOWED_ORIGINS}
+            allowed-methods: GET,POST,PUT,DELETE,OPTIONS
             allowed-headers: "*"
             allow-credentials: false
             max-age: 3600
+
       routes:
         - id: user-service
-          uri: http://localhost:8086
+          uri: lb://USERSERVICE
           predicates:
             - Path=/api/users/**
-          # DISABLED: Reactive Gateway incompatible with servlet-style JWT filter
-          # filters:
-          #   - name: JwtAuthenticationFilter
-        - id: user-auth-service
-          uri: http://localhost:8086
+
+        - id: auth-service
+          uri: lb://USERSERVICE
           predicates:
             - Path=/auth/**
-          # ADDED: Route for auth endpoints like /auth/logout
+
         - id: task-service
-          uri: http://localhost:8087
+          uri: lb://TASKSERVICE
           predicates:
             - Path=/api/tasks/**
-          # DISABLED: Let downstream services handle JWT validation
-          # filters:
-          #   - name: JwtAuthenticationFilter
 
 jwt:
-  secret: mysecretkeymysecretkeymysecretkey1234mysecretkeymysecretkeymysecretkey1234
-  issuer: tasksphere-api
+  secret: ${JWT_SECRET}
+  issuer: ${JWT_ISSUER}
 
 management:
   endpoints:
@@ -48,7 +45,7 @@ management:
 logging:
   level:
     org.springframework.cloud.gateway: INFO
-    com.mit.tasksphere: DEBUG
+    com.mit.tasksphere: INFO
 
 resilience4j:
   circuitbreaker:
