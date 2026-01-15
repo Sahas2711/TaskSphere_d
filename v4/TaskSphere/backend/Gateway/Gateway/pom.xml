@@ -19,6 +19,7 @@
     <artifactId>gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Gateway</name>
+    <packaging>jar</packaging>
     <description>TaskSphere API Gateway</description>
 
     <!-- Project properties -->
