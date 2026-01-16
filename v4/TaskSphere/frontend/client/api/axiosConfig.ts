@@ -3,7 +3,7 @@ import { API_CONFIG } from '../config/apiConfig';
 
 // Production-grade Axios instance for Gateway
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8090', // Force Gateway URL timeout: API_CONFIG.TIMEOUT,
+  baseURL: 'https://tasksphere-d-gateway.onrender.com/', // Force Gateway URL timeout: API_CONFIG.TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
