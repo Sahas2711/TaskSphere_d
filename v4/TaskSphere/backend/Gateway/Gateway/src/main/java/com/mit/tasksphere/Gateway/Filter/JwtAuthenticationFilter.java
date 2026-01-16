@@ -19,12 +19,19 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
     @Value("${jwt.secret}")
     private String jwtSecret;
 
+
+
+    
     public JwtAuthenticationFilter() {
         super(Config.class);
     }
 
     @Override
-    public GatewayFilter apply(Config config) {
+    public GatewayFilter apply(Config config) {  
+        
+    if (jwtSecret == null || jwtSecret.isBlank()) {
+        throw new IllegalStateException("JWT_SECRET is not configured");
+    }
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
             String path = request.getPath().value();
@@ -70,6 +77,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
             }
         };
     }
+
 
     public static class Config {
         // Configuration properties if needed

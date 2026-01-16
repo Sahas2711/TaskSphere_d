@@ -14,16 +14,16 @@ export interface LoginResponse {
 
 export const authService = {
   login: async (credentials: LoginRequest): Promise<LoginResponse> => {
-    console.log('🔥 AUTH SERVICE: Attempting login via Gateway');
-    console.log('🔥 URL:', 'http://localhost:8090' + API_CONFIG.ENDPOINTS.LOGIN);
-    console.log('🔥 Credentials:', { email: credentials.email, password: credentials.password });
+    // console.log('🔥 AUTH SERVICE: Attempting login via Gateway');
+    // console.log('🔥 URL:', 'http://localhost:8090' + API_CONFIG.ENDPOINTS.LOGIN);
+    // console.log('🔥 Credentials:', { email: credentials.email, password: credentials.password });
     
     try {
-      console.log('🔥 API Client:', apiClient);
-      console.log('🔥 Endpoint:', API_CONFIG.ENDPOINTS.LOGIN);
-      console.log(credentials);
+      // console.log('🔥 API Client:', apiClient);
+      // console.log('🔥 Endpoint:', API_CONFIG.ENDPOINTS.LOGIN);
+      // console.log(credentials);
       const response = await apiClient.post(API_CONFIG.ENDPOINTS.LOGIN, credentials);
-      console.log('✅ Login successful:', response.data);
+     // console.log('✅ Login successful:', response.data);
       return response.data;
     } catch (error: any) {
       console.error('❌ Login failed:', error.response?.status, error.response?.data);
@@ -49,9 +49,9 @@ export const authService = {
   logout: async (): Promise<void> => {
     try {
       // FIXED: Correct path through Gateway to UserService
-      console.log('🔥 Attempting logout via Gateway');
+     // console.log('🔥 Attempting logout via Gateway');
       await apiClient.post('/auth/logout');
-      console.log('✅ Logout successful');
+      //console.log('✅ Logout successful');
     } catch (error: any) {
       console.error('❌ Logout failed:', error);
       // Don't throw error - allow frontend cleanup even if backend fails

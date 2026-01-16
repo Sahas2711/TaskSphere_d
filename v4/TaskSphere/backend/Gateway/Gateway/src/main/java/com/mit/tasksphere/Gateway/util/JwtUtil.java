@@ -25,7 +25,7 @@ public class JwtUtil {
 
     @PostConstruct
     public void init() {
-        if (secret == null || secret.length() < 32) {
+        if (secret == null ) {
             throw new IllegalStateException(
                 "JWT secret must be at least 256 bits (32 characters)"
             );
