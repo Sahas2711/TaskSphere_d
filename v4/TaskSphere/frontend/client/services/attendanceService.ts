@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8090'; // Use Gateway
+const API_BASE_URL = 'https://tasksphere-d-gateway.onrender.com/'; // Use Gateway
 
 export const attendanceService = {
   clockIn: async () => {

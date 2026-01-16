@@ -1,6 +1,6 @@
 // API Configuration - Gateway Only
 export const API_CONFIG = {
-  BASE_URL:  'http://localhost:8090',
+  BASE_URL:  'https://tasksphere-d-gateway.onrender.com/',
   TIMEOUT: 10000,
   
   ENDPOINTS: {
